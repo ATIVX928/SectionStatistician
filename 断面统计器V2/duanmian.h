@@ -4,6 +4,17 @@ class duanmian
 {
 public:
 	duanmian(int num,int l);
+	//计算
+	int Calc();
+private:
+	//计算线段连接向量
+	int CalcConnectVector();
+	//计算线性权重
+	int CalcLinearWeights();
+	//计算平均高程
+	int CalcAverageElevation();
+	//计算河道中点
+	int CalcMidPoint();
 public:
 	//获得断面编号
 	int GetNum();
@@ -28,6 +39,18 @@ private:
 
 	//断面距零点距离
 	int _l;
+
+	//连接向量
+	std::vector<Eigen::Vector2d> _connect_vector;
+
+	//平均高程
+	double _average_elevation;
+
+	//线性权重
+	std::vector<double>_linear_weights;
+
+	//河道中点(编号)
+	int _mid_point;
 	
 };
 

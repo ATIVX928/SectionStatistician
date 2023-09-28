@@ -6,4 +6,5 @@ int main()
 {
 	hedao r1;
 	r1.Load();
+	r1.Calc();
 }

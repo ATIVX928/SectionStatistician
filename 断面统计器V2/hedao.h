@@ -7,6 +7,8 @@ public:
 	//加载数据
 	//s:文件名
 	int Load(std::string s= "测试数据.txt");
+	//计算
+	int Calc();
 
 private:
 	//断面源数据

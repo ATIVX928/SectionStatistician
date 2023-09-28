@@ -47,6 +47,15 @@ int hedao::Load(std::string s)
     return 1;
 }
 
+int hedao::Calc()
+{
+	for (auto i : _data)
+	{
+		i->Calc();
+	}
+	return 1;
+}
+
 int hedao::operator<<(std::shared_ptr<duanmian>& x)
 {
 	_data.push_back(x);
