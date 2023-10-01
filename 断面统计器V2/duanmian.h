@@ -7,6 +7,8 @@ public:
 	//计算
 	int Calc();
 private:
+	//计算河道低点
+	int CalcLowestPoint();
 	//计算线段连接向量
 	int CalcConnectVector();
 	//计算线性权重
@@ -51,6 +53,9 @@ private:
 
 	//河道中点(编号)
 	int _mid_point;
+
+	//河道低点(编号)
+	int _lowest_point;
 	
 };
 

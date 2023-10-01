@@ -10,10 +10,24 @@ duanmian::duanmian(int num, int l)
 
 int duanmian::Calc()
 {
+	CalcLowestPoint();
 	CalcConnectVector();
 	CalcLinearWeights();
 	CalcAverageElevation();
 	CalcMidPoint();
+	return 1;
+}
+
+int duanmian::CalcLowestPoint()
+{
+	_lowest_point = 0;
+	for (int i = 0; i < _data.size(); i++)
+	{
+		if (_data[i].y() < _data[_lowest_point].y())
+		{
+			_lowest_point = i;
+		}
+	}
 	return 1;
 }
 
@@ -67,11 +81,12 @@ int duanmian::CalcMidPoint()
 {
 	int enable = 2;
 	int l, r;
+	const double decision_elevation = (_average_elevation + _data[_lowest_point].y()) / 2;
 	for (int i = 0; i < _data.size(); i++)
 	{
 		if (enable == 2)
 		{
-			if (_data[i].x() > 0 && _data[i].y() < _average_elevation)
+			if (_data[i].x() > 0 && _data[i].y() < decision_elevation)
 			{
 				enable--;
 				l = i;
@@ -83,7 +98,7 @@ int duanmian::CalcMidPoint()
 		}
 		if (enable == 1)
 		{
-			if (_data[i].y() > _average_elevation)
+			if (_data[i].y() > decision_elevation)
 			{
 				enable--;
 				r = i-1;
